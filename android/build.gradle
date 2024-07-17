@@ -25,6 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace 'com.inmoment.wootricsdk_flutter'
     compileSdkVersion 31
 
     compileOptions {
@@ -38,6 +39,10 @@ android {
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    buildFeatures {
+        buildConfig true
     }
 
     defaultConfig {
