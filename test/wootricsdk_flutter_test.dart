@@ -118,6 +118,14 @@ class MockWootricsdkFlutterPlatform
   showSurveyWithEvent(String eventName) {
 
   }
+  
+  @override
+  setEndUserProperties(Map<String, String> endUserProperties) {
+  }
+  
+  @override
+  showDisclaimer(String disclaimerText, String disclaimerLinkURL, String disclaimerLinkText) {
+  }
 }
 
 void main() {
