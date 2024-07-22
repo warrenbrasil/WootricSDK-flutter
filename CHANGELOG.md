@@ -1,3 +1,7 @@
+## [0.0.10] - 2024-07-17
+
+* Update build.gradle required for Flutter v3.22.2
+
 ## [0.0.9] - 2024-06-04
 
 * Fix `Int` to `Long` cast in Android `setEndUserCreatedAt`
