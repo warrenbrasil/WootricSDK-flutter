@@ -147,4 +147,11 @@ class WootricsdkFlutter {
   static showSurveyWithEvent(String eventName) {
     WootricsdkFlutterPlatform.instance.showSurveyWithEvent(eventName);
   }
+
+  /// For promoters (score 9-10)
+  /// Display a custom thank you message (setPromoterThankYouMessage)
+  /// Display a custom thank you button and link redirect (setPromoterThankYouLinkWithText)
+  static setPromoterCustomThankYouScreen(String message, String label, String url) {
+    WootricsdkFlutterPlatform.instance.setPromoterCustomThankYouScreen(message, label, url);
+  }
 }

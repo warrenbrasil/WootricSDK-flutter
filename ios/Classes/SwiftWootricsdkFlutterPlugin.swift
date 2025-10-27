@@ -158,6 +158,20 @@ public class SwiftWootricsdkFlutterPlugin: NSObject, FlutterPlugin {
                     }
                 }
 
+            case "setPromoterThankYouMessage":
+                if let arguments = call.arguments as? [String: Any] {
+                    let message = arguments["promoterThankYouMessage"] as? String
+                    Wootric.setPromoterThankYouMessage(languageCode)
+                }
+           
+            case "setPromoterThankYouLinkWithText":
+                if let arguments = call.arguments as? [String: Any] {
+                    let label = arguments["promoterThankYouLinkText"] as? String
+                    let link = arguments["promoterThankYouLinkURL"] as? String
+                    let url = URL(string: link!)
+                    Wootric.setPromoterThankYouLinkWithText(label,url)
+           }
+
             default:
                 result(FlutterMethodNotImplemented)
             }
