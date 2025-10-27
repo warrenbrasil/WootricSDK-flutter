@@ -161,7 +161,7 @@ public class SwiftWootricsdkFlutterPlugin: NSObject, FlutterPlugin {
             case "setPromoterThankYouMessage":
                 if let arguments = call.arguments as? [String: Any] {
                     let message = arguments["promoterThankYouMessage"] as? String
-                    Wootric.setPromoterThankYouMessage(languageCode)
+                    Wootric.setPromoterThankYouMessage(message)
                 }
            
             case "setPromoterThankYouLinkWithText":
@@ -169,7 +169,7 @@ public class SwiftWootricsdkFlutterPlugin: NSObject, FlutterPlugin {
                     let label = arguments["promoterThankYouLinkText"] as? String
                     let link = arguments["promoterThankYouLinkURL"] as? String
                     let url = URL(string: link!)
-                    Wootric.setPromoterThankYouLinkWithText(label,url)
+                    Wootric.setPromoterThankYouLinkWithText(label, url: url)
            }
 
             default:
