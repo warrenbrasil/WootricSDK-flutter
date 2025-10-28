@@ -113,7 +113,7 @@ class WootricsdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       val customThankYou = WootricCustomThankYou()
       customThankYou?.setPromoterText(message)
       wootric?.setCustomThankYou(customThankYou);
-    } else if (call.methos.equals("setPromoterThankYouLinkWithText")){
+    } else if (call.method.equals("setPromoterThankYouLinkWithText")){
       val label: String? = call.argument("promoterThankYouLinkText")
       var link: String? = call.argument("promoterThankYouLinkURL")
       val url = Uri.parse(link)
