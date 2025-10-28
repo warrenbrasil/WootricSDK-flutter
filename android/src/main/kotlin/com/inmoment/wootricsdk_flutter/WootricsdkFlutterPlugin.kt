@@ -108,6 +108,19 @@ class WootricsdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       val disclaimerLinkText: String? = call.argument("disclaimerLinkText")
       val disclaimerLinkURI = Uri.parse(disclaimerLink)
       wootric?.showDisclaimer(disclaimerText, disclaimerLinkURI, disclaimerLinkText)
+    } else if (call.method.equals("setPromoterThankYouMessage")){
+      val message: String? = call.argument("promoterThankYouMessage")
+      val customThankYou = WootricCustomThankYou()
+      customThankYou?.setPromoterText(message)
+      wootric?.setCustomThankYou(customThankYou);
+    } else if (call.methos.equals("setPromoterThankYouLinkWithText")){
+      val label: String? = call.argument("promoterThankYouLinkText")
+      var link: String? = call.argument("promoterThankYouLinkURL")
+      val url = Uri.parse(link)
+      val customThankYou = WootricCustomThankYou()
+      customThankYou?.setPromoterLinkText(label)
+      customThankYou?.setPromoterLinkUri(url)
+      wootric?.setCustomThankYou(customThankYou);
     } else {
       result.notImplemented()
     }
