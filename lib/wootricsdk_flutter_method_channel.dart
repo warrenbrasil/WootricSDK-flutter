@@ -210,12 +210,17 @@ class MethodChannelWootricsdkFlutter extends WootricsdkFlutterPlatform {
 
   @override
   setPromoterCustomThankYouScreen(String message, String label, String url) {
-    methodChannel.invokeMethod('setPromoterThankYouMessage', {
-      'promoterThankYouMessage': message
-    });
-    methodChannel.invokeMethod('setPromoterThankYouLinkWithText', {
-      'promoterThankYouLinkText': label,
-      'promoterThankYouLinkURL': url
+    methodChannel.invokeMethod(
+        'setPromoterThankYouMessage', {'promoterThankYouMessage': message});
+    methodChannel.invokeMethod('setPromoterThankYouLinkWithText',
+        {'promoterThankYouLinkText': label, 'promoterThankYouLinkURL': url});
+  }
+
+  @override
+  setSurveyColors(String primary, [String? secondary]) {
+    methodChannel.invokeMethod('setSurveyColors', {
+      'primary': primary,
+      'secondary': secondary ?? primary,
     });
   }
 }
