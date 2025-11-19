@@ -208,6 +208,7 @@ class MethodChannelWootricsdkFlutter extends WootricsdkFlutterPlatform {
         .invokeMethod('showWootricSurveyWithEvent', {'eventName': eventName});
   }
 
+  ///CUSTOM
   @override
   setPromoterCustomThankYouScreen(String message, String label, String url) {
     methodChannel.invokeMethod(
@@ -216,6 +217,7 @@ class MethodChannelWootricsdkFlutter extends WootricsdkFlutterPlatform {
         {'promoterThankYouLinkText': label, 'promoterThankYouLinkURL': url});
   }
 
+  ///CUSTOM
   @override
   setSurveyColors(String primary, [String? secondary]) {
     methodChannel.invokeMethod('setSurveyColors', {

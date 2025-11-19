@@ -148,6 +148,7 @@ class WootricsdkFlutter {
     WootricsdkFlutterPlatform.instance.showSurveyWithEvent(eventName);
   }
 
+  ///CUSTOM
   /// For promoters (score 9-10)
   /// Display a custom thank you message (setPromoterThankYouMessage)
   /// Display a custom thank you button and link redirect (setPromoterThankYouLinkWithText)
@@ -157,6 +158,7 @@ class WootricsdkFlutter {
         .setPromoterCustomThankYouScreen(message, label, url);
   }
 
+  ///CUSTOM
   ///Override survey theme with custom colors for primary and secondary colors.
   ///To set a custom color pass appropriate [primary] and [secondary] in hex format.
   static setSurveyTheme(String primary, {String? secondary}) {

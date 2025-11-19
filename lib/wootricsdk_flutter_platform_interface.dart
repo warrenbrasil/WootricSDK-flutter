@@ -115,11 +115,13 @@ abstract class WootricsdkFlutterPlatform extends PlatformInterface {
   /// Display Wootric survey driven by configured settings and event name.
   showSurveyWithEvent(String eventName) {}
 
+  ///CUSTOM
   /// For promoters (score 9-10)
   /// Display a custom thank you message (setPromoterThankYouMessage)
   /// Display a custom thank you button and link redirect (setPromoterThankYouLinkWithText)
   setPromoterCustomThankYouScreen(String message, String label, String url) {}
 
+  ///CUSTOM
   ///Override survey theme with custom colors for primary and secondary colors.
   ///To set a custom color pass appropriate [primary] and [secondary] in hex format.
   setSurveyColors(String primary, [String? secondary]) {}
