@@ -4,132 +4,86 @@ import 'package:wootricsdk_flutter/wootricsdk_flutter_platform_interface.dart';
 import 'package:wootricsdk_flutter/wootricsdk_flutter_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-class MockWootricsdkFlutterPlatform 
+class MockWootricsdkFlutterPlatform
     with MockPlatformInterfaceMixin
     implements WootricsdkFlutterPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 
   @override
-  configure({required String clientId, required String accountToken}) {
-
-  }
+  configure({required String clientId, required String accountToken}) {}
 
   @override
-  setEndUserEmail(String endUserEmail) {
-  }
+  setEndUserEmail(String endUserEmail) {}
 
   @override
-  setEndUserExternalId(String endUserExternalId) {
-  }
+  setEndUserExternalId(String endUserExternalId) {}
 
   @override
-  forceSurvey(bool forceSurvey) {
-
-  }
+  forceSurvey(bool forceSurvey) {}
 
   @override
-  passScoreAndTextToURL(bool passScoreAndTextToURL) {
-
-  }
+  passScoreAndTextToURL(bool passScoreAndTextToURL) {}
 
   @override
-  setEndUserCreatedAt(int timestamp) {
-
-  }
+  setEndUserCreatedAt(int timestamp) {}
 
   @override
-  setEndUserPropteries(Map<String, String> endUserProperties) {
-
-  }
+  setFirstSurveyAfter(int numberOfDays) {}
 
   @override
-  setFirstSurveyAfter(int numberOfDays) {
-
-  }
+  setLanguageCode(String languageCode) {}
 
   @override
-  setLanguageCode(String languageCode) {
-
-  }
+  setLogLevelError() {}
 
   @override
-  setLogLevelError() {
-
-  }
+  setLogLevelNone() {}
 
   @override
-  setLogLevelNone() {
-
-  }
+  setLogLevelVerbose() {}
 
   @override
-  setLogLevelVerbose() {
-
-  }
+  setSurveyedDefault(bool surveyedDefault) {}
 
   @override
-  setSurveyedDefault(bool surveyedDefault) {
-
-  }
+  showOptOut(bool showOptOut) {}
 
   @override
-  showOptOut(bool showOptOut) {
-
-  }
+  showSurvey() {}
 
   @override
-  showSurvey() {
-
-  }
+  skipFeedbackScreenForPromoter(bool skipFeedbackScreenForPromoter) {}
 
   @override
-  skipFeedbackScreenForPromoter(bool skipFeedbackScreenForPromoter) {
-
-  }
+  surveyImmediately(bool surveyImmediately) {}
 
   @override
-  surveyImmediately(bool surveyImmediately) {
-
-  }
+  setSendButtonBackgroundColor(String color) {}
 
   @override
-  setSendButtonBackgroundColor(String color) {
-
-  }
+  setSliderColor(String color) {}
 
   @override
-  setSliderColor(String color) {
-
-  }
+  setSocialSharingColor(String color) {}
 
   @override
-  setSocialSharingColor(String color) {
-
-  }
+  setThankYouButtonBackgroundColor(String color) {}
 
   @override
-  setThankYouButtonBackgroundColor(String color) {
-
-  }
+  showSurveyWithEvent(String eventName) {}
 
   @override
-  showSurveyWithEvent(String eventName) {
+  setEndUserProperties(Map<String, String> endUserProperties) {}
 
-  }
-  
   @override
-  setEndUserProperties(Map<String, String> endUserProperties) {
-  }
-  
-  @override
-  showDisclaimer(String disclaimerText, String disclaimerLinkURL, String disclaimerLinkText) {
-  }
+  showDisclaimer(String disclaimerText, String disclaimerLinkURL,
+      String disclaimerLinkText) {}
 }
 
 void main() {
-  final WootricsdkFlutterPlatform initialPlatform = WootricsdkFlutterPlatform.instance;
+  final WootricsdkFlutterPlatform initialPlatform =
+      WootricsdkFlutterPlatform.instance;
 
   test('$MethodChannelWootricsdkFlutter is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelWootricsdkFlutter>());
@@ -137,9 +91,10 @@ void main() {
 
   test('getPlatformVersion', () async {
     WootricsdkFlutter wootricsdkFlutterPlugin = WootricsdkFlutter();
-    MockWootricsdkFlutterPlatform fakePlatform = MockWootricsdkFlutterPlatform();
+    MockWootricsdkFlutterPlatform fakePlatform =
+        MockWootricsdkFlutterPlatform();
     WootricsdkFlutterPlatform.instance = fakePlatform;
-  
+
     expect(await wootricsdkFlutterPlugin.getPlatformVersion(), '42');
   });
 }
