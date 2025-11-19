@@ -1,3 +1,8 @@
+## [0.0.11] - 2025-11-19
+
+* Add setPromoterCustomThankYouScreen method
+* Add setSurveyTheme method
+
 ## [0.0.10] - 2024-07-17
 
 * Update build.gradle required for Flutter v3.22.2

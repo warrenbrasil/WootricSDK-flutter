@@ -25,6 +25,9 @@ class WootricsdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   private lateinit var context: Activity
   private var wootric: Wootric? = null
 
+  ///Custom
+  private val customThankYou = WootricCustomThankYou()
+
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "wootricsdk_flutter")
     channel.setMethodCallHandler(this)
@@ -108,6 +111,29 @@ class WootricsdkFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       val disclaimerLinkText: String? = call.argument("disclaimerLinkText")
       val disclaimerLinkURI = Uri.parse(disclaimerLink)
       wootric?.showDisclaimer(disclaimerText, disclaimerLinkURI, disclaimerLinkText)
+    /// CUSTOM
+    } else if (call.method.equals("setPromoterThankYouMessage")){
+      val message: String? = call.argument("promoterThankYouMessage")
+      customThankYou.setPromoterText(message)
+      wootric?.setCustomThankYou(customThankYou)
+    /// CUSTOM
+    } else if (call.method.equals("setPromoterThankYouLinkWithText")) {
+      val label: String? = call.argument("promoterThankYouLinkText")
+      var link: String? = call.argument("promoterThankYouLinkURL")
+      val url = Uri.parse(link)
+      customThankYou.setPromoterLinkText(label)
+      customThankYou.setPromoterLinkUri(url)
+      wootric?.setCustomThankYou(customThankYou)
+    /// CUSTOM
+    } else if (call.method.equals("setSurveyColors")) {
+      val hexPrimary: String? = call.argument("primary")
+      var hexSecondary: String? = call.argument("secondary")
+      val primaryColor: Int = Color.parseColor(hexPrimary)
+      val secondaryColor: Int = Color.parseColor(hexSecondary)
+      wootric?.setScoreColor(secondaryColor)
+      wootric?.setSurveyColor(primaryColor)
+      wootric?.setThankYouButtonBackgroundColor(primaryColor)
+      wootric?.setSocialSharingColor(primaryColor)
     } else {
       result.notImplemented()
     }

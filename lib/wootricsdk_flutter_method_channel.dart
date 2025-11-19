@@ -207,4 +207,22 @@ class MethodChannelWootricsdkFlutter extends WootricsdkFlutterPlatform {
     methodChannel
         .invokeMethod('showWootricSurveyWithEvent', {'eventName': eventName});
   }
+
+  ///CUSTOM
+  @override
+  setPromoterCustomThankYouScreen(String message, String label, String url) {
+    methodChannel.invokeMethod(
+        'setPromoterThankYouMessage', {'promoterThankYouMessage': message});
+    methodChannel.invokeMethod('setPromoterThankYouLinkWithText',
+        {'promoterThankYouLinkText': label, 'promoterThankYouLinkURL': url});
+  }
+
+  ///CUSTOM
+  @override
+  setSurveyColors(String primary, [String? secondary]) {
+    methodChannel.invokeMethod('setSurveyColors', {
+      'primary': primary,
+      'secondary': secondary ?? primary,
+    });
+  }
 }

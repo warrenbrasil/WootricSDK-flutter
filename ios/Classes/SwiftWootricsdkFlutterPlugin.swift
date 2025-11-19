@@ -158,6 +158,34 @@ public class SwiftWootricsdkFlutterPlugin: NSObject, FlutterPlugin {
                     }
                 }
 
+            ///Custom
+            case "setPromoterThankYouMessage":
+                if let arguments = call.arguments as? [String: Any] {
+                    let message = arguments["promoterThankYouMessage"] as? String
+                    Wootric.setPromoterThankYouMessage(message)
+                }
+            ///Custom
+            case "setPromoterThankYouLinkWithText":
+                if let arguments = call.arguments as? [String: Any] {
+                    let label = arguments["promoterThankYouLinkText"] as? String
+                    let link = arguments["promoterThankYouLinkURL"] as? String
+                    let url = URL(string: link!)
+                    Wootric.setPromoterThankYouLinkWithText(label, url: url)
+                }
+            ///Custom
+            case "setSurveyColors":
+               if let arguments = call.arguments as? [String: Any] {
+                   let hexPrimaryColor = arguments["primary"] as? String
+                   let hexSecondaryColor = arguments["secondary"] as? String
+                   let primaryColor = convertHEXtoUIColor(hexPrimaryColor!)
+                   let secondaryColor = convertHEXtoUIColor(hexSecondaryColor!)
+                   Wootric.setSliderColor(secondaryColor)
+                   Wootric.setSendButtonBackgroundColor(primaryColor)
+                   Wootric.setThankYouButtonBackgroundColor(primaryColor)
+                   Wootric.setSocialSharing(primaryColor)
+               }
+           
+
             default:
                 result(FlutterMethodNotImplemented)
             }
