@@ -79,6 +79,12 @@ class MockWootricsdkFlutterPlatform
   @override
   showDisclaimer(String disclaimerText, String disclaimerLinkURL,
       String disclaimerLinkText) {}
+
+  @override
+  setPromoterCustomThankYouScreen(String message, String label, String url) {}
+
+  @override
+  setSurveyColors(String primary, [String? secondary]) {}
 }
 
 void main() {
